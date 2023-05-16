@@ -1,6 +1,7 @@
 package com.aws.image.upload.profile;
 
 import java.util.Objects;
+import java.util.Optional;
 import java.util.UUID;
 
 public class UserProfile {
@@ -8,9 +9,11 @@ public class UserProfile {
 	private UUID userProfileId;
 	private String userName;
 	private String userProfileImageLink;	//s3 key
-	public UserProfile(UUID userProfileId, 
-					   String userName, 
-					   String userProfileImageLink) {
+	
+	
+	
+	public UserProfile(UUID userProfileId, String userName, String userProfileImageLink) {
+		super();
 		this.userProfileId = userProfileId;
 		this.userName = userName;
 		this.userProfileImageLink = userProfileImageLink;
@@ -27,8 +30,8 @@ public class UserProfile {
 	public void setUserName(String userName) {
 		this.userName = userName;
 	}
-	public String getUserProfileImageLink() {
-		return userProfileImageLink;
+	public Optional<String> getUserProfileImageLink() {
+		return Optional.ofNullable(userProfileImageLink);
 	}
 	public void setUserProfileImageLink(String userProfileImageLink) {
 		this.userProfileImageLink = userProfileImageLink;
